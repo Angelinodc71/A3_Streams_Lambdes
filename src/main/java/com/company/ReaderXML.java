@@ -21,6 +21,7 @@ public class ReaderXML {
         this.films = ((Films)jaxbUnmarshaller.unmarshal(is)).films;
     }
     void consulta1(){
+        System.out.println("Lista de peliculas con el mismo director");
 
     }
 
