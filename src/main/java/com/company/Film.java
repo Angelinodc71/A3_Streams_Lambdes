@@ -36,135 +36,6 @@ public class Film implements Serializable {
     String any;
     @XmlElement(name = "CARTELL")
     String cartell;
-
-    public String getIdfilm() {
-        return idfilm;
-    }
-
-    public void setIdfilm(String idfilm) {
-        this.idfilm = idfilm;
-    }
-
-    public String getPrioritat() {
-        return prioritat;
-    }
-
-    public void setPrioritat(String prioritat) {
-        this.prioritat = prioritat;
-    }
-
-    public String getTitol() {
-        return titol;
-    }
-
-    public void setTitol(String titol) {
-        this.titol = titol;
-    }
-
-    public String getSituacio() {
-        return situacio;
-    }
-
-    public void setSituacio(String situacio) {
-        this.situacio = situacio;
-    }
-
-    public String getAny() {
-        return any;
-    }
-
-    public void setAny(String any) {
-        this.any = any;
-    }
-
-    public String getCartell() {
-        return cartell;
-    }
-
-    public void setCartell(String cartell) {
-        this.cartell = cartell;
-    }
-
-    public String getOriginal() {
-        return original;
-    }
-
-    public void setOriginal(String original) {
-        this.original = original;
-    }
-
-    public String getDireccio() {
-        return direccio;
-    }
-
-    public void setDireccio(String direccio) {
-        this.direccio = direccio;
-    }
-
-    public String getInterprets() {
-        return interprets;
-    }
-
-    public void setInterprets(String interprets) {
-        this.interprets = interprets;
-    }
-
-    public String getSinopsi() {
-        return sinopsi;
-    }
-
-    public void setSinopsi(String sinopsi) {
-        this.sinopsi = sinopsi;
-    }
-
-    public String getVersio() {
-        return versio;
-    }
-
-    public void setVersio(String versio) {
-        this.versio = versio;
-    }
-
-    public String getIdioma_x0020_original() {
-        return idioma_x0020_original;
-    }
-
-    public void setIdioma_x0020_original(String idioma_x0020_original) {
-        this.idioma_x0020_original = idioma_x0020_original;
-    }
-
-    public String getQualificacio() {
-        return qualificacio;
-    }
-
-    public void setQualificacio(String qualificacio) {
-        this.qualificacio = qualificacio;
-    }
-
-    public String getTrailer() {
-        return trailer;
-    }
-
-    public void setTrailer(String trailer) {
-        this.trailer = trailer;
-    }
-
-    public String getWeb() {
-        return web;
-    }
-
-    public void setWeb(String web) {
-        this.web = web;
-    }
-
-    public String getEstrena() {
-        return estrena;
-    }
-
-    public void setEstrena(String estrena) {
-        this.estrena = estrena;
-    }
-
     @XmlElement(name = "ORIGINAL")
     String original;
     @XmlElement(name = "DIRECCIO")
@@ -210,5 +81,69 @@ public class Film implements Serializable {
                 ", web='" + web + '\'' +
                 ", estrena='" + estrena + '\'' +
                 '}';
+    }
+
+    public String getIdfilm() {
+        return idfilm;
+    }
+
+    public String getPrioritat() {
+        return prioritat;
+    }
+
+    public String getTitol() {
+        return titol;
+    }
+
+    public String getSituacio() {
+        return situacio;
+    }
+
+    public String getAny() {
+        return any;
+    }
+
+    public String getCartell() {
+        return cartell;
+    }
+
+    public String getOriginal() {
+        return original;
+    }
+
+    public String getDireccio() {
+        return direccio;
+    }
+
+    public String getInterprets() {
+        return interprets;
+    }
+
+    public String getSinopsi() {
+        return sinopsi;
+    }
+
+    public String getVersio() {
+        return versio;
+    }
+
+    public String getIdioma_x0020_original() {
+        return idioma_x0020_original;
+    }
+
+    public String getQualificacio() {
+        return qualificacio;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public String getWeb() {
+        return web;
+    }
+
+    public String getEstrena() {
+        return estrena;
     }
 }
