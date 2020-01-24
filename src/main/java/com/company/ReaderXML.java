@@ -7,9 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 class ReaderXML {
@@ -79,6 +77,7 @@ class ReaderXML {
     }
 
     void consulta3(){
+        //Por la palabra que yo elijo me busca si la contiene algun titulo del xml
         String paraula="l\'";
         long cant =films.stream()
                 .filter(c -> c.getTitol().contains(paraula)).count();
@@ -90,19 +89,56 @@ class ReaderXML {
     }
 
     void consulta4(){
-        System.out.println("OPCIO 1 --> Titol\nOPCIO 2 -->Direccio\nOPCIO 3 --> Any\nOPCIO 4 --> Estrenada");
-        films.stream()
-                .sorted(Comparator.comparing(Film::getTitol)).
-                collect(Collectors.toList())
-                .forEach(System.out::println);
-    //poner diferentes opciones
+        //Ordena por el parametro que yo elija
+        System.out.println("OPCIO 1 --> Titol\nOPCIO 2 --> Direccio\nOPCIO 3 --> Any\nOPCIO 4 --> Estrenada");
+        Scanner sc = new Scanner(System.in);
+        int opcion = sc.nextInt();
+        sc.nextLine();
+        switch (opcion) {
+            case 1:
+                films.stream()
+                        .sorted(Comparator.comparing(Film::getTitol))
+                        .collect(Collectors.toList())
+                        .forEach(System.out::println);
+                break;
+            case 2:
+                films.stream()
+                        .sorted(Comparator.comparing(Film::getDireccio))
+                        .collect(Collectors.toList())
+                        .forEach(System.out::println);
+                break;
+            case 3:
+                films.stream()
+                        .sorted(Comparator.comparing(Film::getAny))
+                        .collect(Collectors.toList())
+                        .forEach(System.out::println);
+                break;
+            case 4:
+                films.stream()
+                        .sorted(Comparator.comparing(Film::getEstrena))
+                        .collect(Collectors.toList())
+                        .forEach(System.out::println);
+                break;
+        }
     }
 
     void consulta5(){
-            while (true) {
-                String resul = films.stream()
-                        .map(c -> c.getInterprets().equals("--")).toString();
-                System.out.println(resul);
-            }
-        }
+        // Te agrupa todas las peliculas y por cada año las agrupa y las cuenta
+        Map<String, List<Film>> resul = films.stream()
+                .collect(Collectors.groupingBy(Film::getAny));
+        resul.forEach((k,v) -> System.out.println("En el "+k+" hi havien "+v.size()+" pel·licules"));
+    }
+    void consulta6(){
+        //Sacar el minimo y el maximo de un año
+        System.out.println("L'any mínim és:");
+        String minAny = String.valueOf(films.stream()
+                .min(Comparator.comparing(Film::getAny))
+                .get());
+        System.out.println(minAny);
+        System.out.println("L'any màxim és:");
+        String maxAny = String.valueOf(films.stream()
+                .max(Comparator.comparing(Film::getAny))
+                .get());
+        System.out.println(maxAny);
+    }
 }

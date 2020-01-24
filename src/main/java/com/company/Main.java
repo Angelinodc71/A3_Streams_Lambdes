@@ -32,10 +32,9 @@ public class Main {
                 readerXML.consulta5();
                 break;
             case 6:
-
+                readerXML.consulta6();
                 break;
             case 7:
-
                 break;
         }
     }
