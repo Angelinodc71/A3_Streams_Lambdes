@@ -100,24 +100,29 @@ class ReaderXML {
                         .sorted(Comparator.comparing(Film::getTitol))
                         .collect(Collectors.toList())
                         .forEach(System.out::println);
+                System.out.println("Ha ordenat alfabeticament per el Titol");
                 break;
             case 2:
                 films.stream()
                         .sorted(Comparator.comparing(Film::getDireccio))
                         .collect(Collectors.toList())
                         .forEach(System.out::println);
+                System.out.println("Ha ordenat alfabeticament per la Direccio");
+
                 break;
             case 3:
                 films.stream()
                         .sorted(Comparator.comparing(Film::getAny))
                         .collect(Collectors.toList())
                         .forEach(System.out::println);
+                System.out.println("Ha ordenat alfabeticament pel Any");
                 break;
             case 4:
                 films.stream()
                         .sorted(Comparator.comparing(Film::getEstrena))
                         .collect(Collectors.toList())
                         .forEach(System.out::println);
+                System.out.println("Ha ordenat alfabeticament per la data de Estrena");
                 break;
         }
     }
@@ -140,5 +145,14 @@ class ReaderXML {
                 .max(Comparator.comparing(Film::getAny))
                 .get());
         System.out.println(maxAny);
+    }
+    void consulta7(){
+        films.stream()
+                .filter(c -> c.getAny().equals("2019") && c.getTitol().charAt(0)=='L')
+                .forEach(System.out::println);
+        long cant = films.stream()
+                .filter(c -> c.getAny().equals("2019") && c.getTitol().charAt(0)=='L')
+                .count();
+        System.out.println("En el 2019 hi han "+cant+" Titols que comencen per la lletra \"l\"");
     }
 }
